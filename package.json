@@ -1,0 +1,38 @@
+{
+  "name": "react-boilerplate",
+  "version": "0.0.1",
+  "description": "a template for creating react applications with vite and typescript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Malcak/react-boilerplate.git"
+  },
+  "author": {
+    "name": "Malcak",
+    "email": "Malcakx@gmail.com",
+    "url": "https://malcak.vercel.app"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "wouter": "^2.8.0-alpha.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "@vitejs/plugin-react": "^1.0.0",
+    "eslint": "^8.2.0",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}
