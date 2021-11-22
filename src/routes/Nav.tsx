@@ -13,9 +13,9 @@ const Nav = () => {
           <nav>
             <img src={logo} alt="React Logo" />
             <ul>
-              {routes.map(({ path, name }) => (
-                <li key={path}>
-                  <ActiveLink href={path}>{name}</ActiveLink>
+              {routes.map(({ to, name }) => (
+                <li key={to}>
+                  <ActiveLink href={to}>{name}</ActiveLink>
                 </li>
               ))}
             </ul>
