@@ -1,9 +1,6 @@
 import { Router, Switch, Route } from 'wouter'
 import ActiveLink from '../../components/ActiveLink'
-import LazyPage1 from '../pages/LazyPage1'
-import LazyPage2 from '../pages/LazyPage2'
-import LazyPage3 from '../pages/LazyPage3'
-
+import { LazyPage1, LazyPage2, LazyPage3 } from '../pages'
 const Nav = () => {
   return (
     <div>
@@ -35,6 +32,5 @@ const Nav = () => {
     </div>
   )
 }
-
 
 export default Nav

@@ -1,4 +1,4 @@
-import Nav from "../router/Nav";
+import Nav from '../router/Nav'
 
 const LazyLayout = () => {
   return (
