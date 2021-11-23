@@ -1,10 +1,10 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-adv",
   "version": "0.0.1",
-  "description": "a template for creating react applications with vite and typescript",
+  "description": "Repositorio del curso de React Pro de @Klerith",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Malcak/react-boilerplate.git"
+    "url": "https://github.com/Malcak/react-adv.git"
   },
   "author": {
     "name": "Malcak",
