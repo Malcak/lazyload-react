@@ -4,23 +4,13 @@ import {
   ProductTitle,
   ProductButtons
 } from '../components'
-import { Product } from '../interfaces/interfaces'
+import { useShoppingCart } from '../hooks/useShoppingCart'
+import products from '../data/products'
 import '../styles/custom-styles.css'
 
-const products: Product[] = [
-  {
-    id: '1',
-    title: 'Coffee Mug',
-    img: './coffee-mug.png'
-  },
-  {
-    id: '2',
-    title: 'Meme Mug',
-    img: './coffee-mug2.png'
-  }
-]
-
 export const ShoppingPage = () => {
+  const { shoppingCart, onProducCountChange } = useShoppingCart()
+
   return (
     <div>
       <h1>Shopping Store</h1>
@@ -31,6 +21,8 @@ export const ShoppingPage = () => {
             key={product.id}
             product={product}
             className="bg-dark text-white"
+            onChange={e => onProducCountChange(e)}
+            value={shoppingCart[product.id]?.count || 0}
           >
             <ProductImage className="custom-image" />
             <ProductTitle className="text-white" />
@@ -39,22 +31,19 @@ export const ShoppingPage = () => {
         ))}
       </div>
       <div className="shopping-cart">
-        <ProductCard
-          product={products[0]}
-          className="bg-dark text-white"
-          style={{ width: '100px' }}
-        >
-          <ProductImage className="custom-image" />
-          <ProductButtons className="custom-buttons" />
-        </ProductCard>
-        <ProductCard
-          product={products[1]}
-          className="bg-dark text-white"
-          style={{ width: '100px' }}
-        >
-          <ProductImage className="custom-image" />
-          <ProductButtons className="custom-buttons" />
-        </ProductCard>
+        {Object.entries(shoppingCart).map(([key, product]) => (
+          <ProductCard
+            key={key}
+            product={product}
+            className="bg-dark text-white"
+            style={{ width: '100px' }}
+            value={product.count}
+            onChange={e => onProducCountChange(e)}
+          >
+            <ProductImage className="custom-image" />
+            <ProductButtons className="custom-buttons" />
+          </ProductCard>
+        ))}
       </div>
     </div>
   )
