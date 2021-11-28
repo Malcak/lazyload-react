@@ -22,6 +22,12 @@ export const ShoppingPage = () => {
           <ProductTitle />
           <ProductButtons />
         </ProductCard>
+
+        <ProductCard product={product}>
+          <ProductCard.Image />
+          <ProductCard.Title />
+          <ProductCard.Buttons />
+        </ProductCard>
       </div>
     </div>
   )

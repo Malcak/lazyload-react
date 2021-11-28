@@ -1,3 +1,6 @@
+import React from 'react'
+
+/* eslint-disable no-unused-vars */
 export interface Product {
   id: string
   title: string
@@ -6,7 +9,18 @@ export interface Product {
 
 export interface ProductContextProps {
   counter: number
-  // eslint-disable-next-line no-unused-vars
   increaseBy: (value: number) => void
   product: Product
+}
+
+export interface ProductCardProps {
+  children?: React.ReactNode
+  product: Product
+}
+
+export interface ProductCardHOCProps {
+  ({ children, product }: ProductCardProps): JSX.Element
+  Title: ({ title }: { title?: string }) => JSX.Element
+  Image: ({ img }: { img?: string }) => JSX.Element
+  Buttons: () => JSX.Element
 }
