@@ -1,5 +1,6 @@
 import { Router, Switch, Route } from 'wouter'
 import ActiveLink from '../components/ActiveLink'
+import { ShoppingPage } from '../component-patterns/pages/ShoppingPage'
 
 import logo from '../logo.svg'
 
@@ -11,7 +12,7 @@ const Nav = () => {
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <ActiveLink href="/">Home</ActiveLink>
+              <ActiveLink href="/">Shopping</ActiveLink>
             </li>
             <li>
               <ActiveLink href="/about">About</ActiveLink>
@@ -30,7 +31,9 @@ const Nav = () => {
             <h1>Users</h1>
           </Route>
           <Route path="/">
-            <h1>Home</h1>
+            <h1>
+              <ShoppingPage />
+            </h1>
           </Route>
         </Switch>
       </div>
