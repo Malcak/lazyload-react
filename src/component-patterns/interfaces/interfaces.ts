@@ -1,4 +1,7 @@
-import React from 'react'
+import { Props as ProductCardProps } from '../components/ProductCard'
+import { Props as ProductImageProps } from '../components/ProductImage'
+import { Props as ProductTitleProps } from '../components/ProductTitle'
+import { Props as ProductButtonsProps } from '../components/ProductButtons'
 
 /* eslint-disable no-unused-vars */
 export interface Product {
@@ -13,14 +16,9 @@ export interface ProductContextProps {
   product: Product
 }
 
-export interface ProductCardProps {
-  children?: React.ReactNode
-  product: Product
-}
-
 export interface ProductCardHOCProps {
   ({ children, product }: ProductCardProps): JSX.Element
-  Title: ({ title }: { title?: string }) => JSX.Element
-  Image: ({ img }: { img?: string }) => JSX.Element
-  Buttons: () => JSX.Element
+  Image: ({ img }: ProductImageProps) => JSX.Element
+  Title: ({ title }: ProductTitleProps) => JSX.Element
+  Buttons: ({ className }: ProductButtonsProps) => JSX.Element
 }
