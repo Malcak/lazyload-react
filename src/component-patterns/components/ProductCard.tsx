@@ -9,15 +9,18 @@ const { Provider } = ProductContext
 export interface Props {
   children?: React.ReactNode
   className?: string
+  style?: React.CSSProperties
   product: Product
 }
 
-export const ProductCard = ({ children, product, className }: Props) => {
+export const ProductCard = ({ children, product, className, style }: Props) => {
   const { counter, increaseBy } = useProduct(0)
 
   return (
     <Provider value={{ counter, increaseBy, product }}>
-      <div className={`${styles.productCard} ${className}`}>{children}</div>
+      <div className={`${styles.productCard} ${className}`} style={style}>
+        {children}
+      </div>
     </Provider>
   )
 }
