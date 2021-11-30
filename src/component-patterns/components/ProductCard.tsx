@@ -5,6 +5,7 @@ import {
   onChangeArgs,
   Product,
   ProductContextProps,
+  ProductCardHandlers,
   InitialValues
 } from '../interfaces/interfaces'
 
@@ -12,7 +13,8 @@ export const ProductContext = createContext({} as ProductContextProps)
 const { Provider } = ProductContext
 
 export interface Props {
-  children?: React.ReactNode
+  // eslint-disable-next-line no-unused-vars
+  children: (args: ProductCardHandlers) => React.ReactNode
   className?: string
   style?: React.CSSProperties
   product: Product
@@ -31,17 +33,25 @@ export const ProductCard = ({
   value,
   onChange
 }: Props) => {
-  const { counter, increaseBy } = useProduct({
-    onChange,
-    product,
-    value,
-    initialValues
-  })
+  const { counter, increaseBy, maxCount, isMaxCountReached, reset } =
+    useProduct({
+      onChange,
+      product,
+      value,
+      initialValues
+    })
 
   return (
-    <Provider value={{ counter, increaseBy, product }}>
+    <Provider value={{ counter, increaseBy, maxCount, product }}>
       <div className={`${styles.productCard} ${className}`} style={style}>
-        {children}
+        {children({
+          count: counter,
+          increaseBy,
+          isMaxCountReached,
+          maxCount: initialValues?.maxCount,
+          reset,
+          product
+        })}
       </div>
     </Provider>
   )
